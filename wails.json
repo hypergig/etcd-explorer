@@ -1,0 +1,12 @@
+{
+  "name": "etcd-explorer",
+  "outputfilename": "etcd-explorer",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "../scripts/start-dev.sh",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Jordan Cohen",
+    "email": "hypergig@gmail.com"
+  }
+}

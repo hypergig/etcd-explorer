@@ -5,23 +5,29 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
-import {EventsOn, EventsOnce, LogError, LogInfo} from "../wailsjs/runtime/runtime";
+import {EventsOn, LogError, LogInfo} from "../wailsjs/runtime";
 import {StartService} from "../wailsjs/go/listwatcher/Service";
 import {etcdtree} from "../wailsjs/go/models";
+import Key from "@mui/icons-material/Key";
+import Stack from "@mui/material/Stack";
 
 const rootToTree = (root: { [key: string]: etcdtree.Node }): JSX.Element[] => {
     return Object.values(root).map((node) => toTree(node))
 }
 
-const toTree = (node: etcdtree.Node): JSX.Element => {
-    if (node.subTree === undefined) {
-        return (
-            <TreeItem nodeId={node.path} key={node.path} label={node.name}/>
-        )
-    }
+const label = (node: etcdtree.Node): JSX.Element => {
     return (
-        <TreeItem nodeId={node.path} key={node.path} label={node.name}>
-            {rootToTree(node.subTree)}
+        <Stack direction="row" spacing={2}>
+            {node.name}
+            {node.isKey && <Key/>}
+        </Stack>
+    )
+};
+
+const toTree = (node: etcdtree.Node): JSX.Element => {
+    return (
+        <TreeItem nodeId={node.path} key={node.path} label={label(node)}>
+            {node.subTree && rootToTree(node.subTree)}
         </TreeItem>
     )
 };

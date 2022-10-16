@@ -1,8 +1,8 @@
 package listwatcher
 
 import (
-	"changeme/internal/etcdtree"
 	"context"
+	"github.com/hypergig/etcd-explorer/internal/etcdtree"
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 	etcd "go.etcd.io/etcd/client/v3"
 )

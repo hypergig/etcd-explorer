@@ -1,6 +1,6 @@
-module changeme
+module github.com/hypergig/etcd-explorer
 
-go 1.18
+go 1.19
 
 require (
 	github.com/stretchr/testify v1.7.1
@@ -48,5 +48,3 @@ require (
 	google.golang.org/protobuf v1.26.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-// replace github.com/wailsapp/wails/v2 v2.0.0 => /Users/jordan/go/pkg/mod

@@ -1,9 +1,8 @@
 package main
 
 import (
-	"changeme/internal/listwatcher"
 	"embed"
-
+	"github.com/hypergig/etcd-explorer/internal/listwatcher"
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 )
